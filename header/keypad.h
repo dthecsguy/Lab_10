@@ -24,10 +24,10 @@
 // Keypad Setup Values
 #define KEYPADPORT PORTC
 #define KEYPADPIN  PINC
-#define COL4 0
+#define COL4 3
 #define COL3 1
 #define COL2 2
-#define COL1 3
+#define COL1 0
 #define ROW1 4
 #define ROW2 5
 #define ROW3 6
