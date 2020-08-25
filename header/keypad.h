@@ -24,14 +24,14 @@
 // Keypad Setup Values
 #define KEYPADPORT PORTC
 #define KEYPADPIN  PINC
-#define ROW4 7
-#define ROW3 6
-#define ROW2 5
-#define ROW1 4
-#define COL1 3
-#define COL2 2
-#define COL3 1
-#define COL4 0
+#define ROW4 3
+#define ROW3 2
+#define ROW2 1
+#define ROW1 0
+#define COL1 7
+#define COL2 6
+#define COL3 5
+#define COL4 4
 
 ////////////////////////////////////////////////////////////////////////////////
 //Functionality - Gets input from a keypad via time-multiplexing
