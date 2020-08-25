@@ -46,7 +46,7 @@ int main(void) {
 	
 	tasks[0].state = WAIT;
 	tasks[0].period = 200;
-	tasks[0].elapsedTime = period;
+	tasks[0].elapsedTime = tasks[0].period;
 	tasks[0].TickFct = &KP_tick;
 	
 	TimerSet(tasksPeriodGCD);
@@ -73,7 +73,7 @@ int main(void) {
     return 1;
 }
 
-unsigned char decKey(unsigned char){
+unsigned char decKey(){
 	unsigned char tmp;
 	
 	switch(key){				
@@ -187,7 +187,7 @@ int KP_tick(int state){
 			break;
 	}
 	
-	outtieKP |= decKey(key);
+	outtieKP |= decKey();
 	
 	return state;
 }
