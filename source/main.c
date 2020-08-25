@@ -62,7 +62,6 @@ int main(void) {
 		}*/
 	    
 	KP_tick(0);
-	set_out();
     }
     return 1;
 }
