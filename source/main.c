@@ -42,7 +42,7 @@ int main(void) {
 	DDRB = 0xFF;	PORTB = 0x00;
 	DDRC = 0xF0;	PORTC = 0x0F;
 	
-	tasks[0].state = WAIT;
+	tasks[0].state = RELEASE;
 	tasks[0].period = 200;
 	tasks[0].elapsedTime = 0;
 	tasks[0].TickFct = &KP_tick;
@@ -138,9 +138,6 @@ unsigned char decKey(unsigned char key){
 			tmp = 0x0F;
 			break;
 			
-		default:
-			tmp = 0x1B;
-			break;
 	}
 	return tmp;
 }
