@@ -15,7 +15,7 @@
 #include "keypad.h"
 #include "timer.h"
 
-static unsigned char outtieKP = 0;
+unsigned char outtieKP = 0;
 const unsigned char tasksNum = 1;
 const unsigned long periodKP = 200;
 const unsigned long tasksPeriodGCD = 200;
@@ -47,8 +47,8 @@ int main(void) {
 	tasks[0].elapsedTime = 0;
 	tasks[0].TickFct = &KP_tick;
 	
-	TimerSet(tasksPeriodGCD);
-	TimerOn();
+	/*TimerSet(tasksPeriodGCD);
+	TimerOn();*/
 	
     /* Insert your solution below */
     while (1) {
@@ -64,16 +64,16 @@ int main(void) {
 	    	unsigned char key = GetKeypadKey();
 	    	PORTB = decKey(key);
 		
-		while(!TimerFlag){}
-		TimerFlag = 0;
+		/*while(!TimerFlag){}
+		TimerFlag = 0;*/
     }
     return 1;
 }
 
-unsigned char decKey(unsigned char key){
+unsigned char decKey(unsigned char keys){
 	unsigned char tmp;
 	
-	switch(key){				
+	switch(keys){				
 		case '1': 
 			tmp = 0x01;
 			break;
