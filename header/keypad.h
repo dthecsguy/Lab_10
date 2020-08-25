@@ -28,10 +28,10 @@
 #define ROW3 1
 #define ROW2 2
 #define ROW1 3
-#define COL1 4
-#define COL2 5
-#define COL3 6
-#define COL4 7
+#define COL1 7
+#define COL2 6
+#define COL3 5
+#define COL4 4
 
 ////////////////////////////////////////////////////////////////////////////////
 //Functionality - Gets input from a keypad via time-multiplexing
