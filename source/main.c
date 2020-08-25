@@ -22,11 +22,11 @@ const unsigned long tasksPeriodGCD = 200;
 
 unsigned char key;
 
-typedef struct _task {
+struct _task {
 	int state;
 	unsigned long period;
 	unsigned long elapsedTime;
-	int (*TickFct)(int)
+	int (*TickFct)(int);
 } task;
 
 _task tasks[1];
