@@ -22,17 +22,16 @@ const unsigned long tasksPeriodGCD = 200;
 
 unsigned char key;
 
-struct _task {
+struct task {
 	int state;
 	unsigned long period;
 	unsigned long elapsedTime;
 	int (*TickFct)(int);
 } task;
 
-_task tasks[1];
+task tasks[1];
 
 void set_out(){ PORTB = outtieKP;}
-void TimerISR() { TimerFlag = 1; }
 unsigned char decKey(unsigned char);
 
 
