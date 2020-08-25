@@ -145,7 +145,7 @@ unsigned char decKey(unsigned char){
 			tmp = 0x1B;
 			break;
 	}
-	return tmp
+	return tmp;
 }
 
 
