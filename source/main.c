@@ -20,8 +20,6 @@ const unsigned char tasksNum = 1;
 const unsigned long periodKP = 200;
 const unsigned long tasksPeriodGCD = 200;
 
-static unsigned char key;
-
 typedef struct task{
 	int state;
 	unsigned long period;
@@ -32,7 +30,7 @@ typedef struct task{
 task tasks[1];
 
 void set_out(){ PORTB = outtieKP;}
-unsigned char decKey();
+unsigned char decKey(unsigned char key);
 
 
 enum KP_State {WAIT, PRESS, HOLD, RELEASE};
@@ -54,7 +52,6 @@ int main(void) {
 	
     /* Insert your solution below */
     while (1) {
-		key = GetKeypadKey();
 		
 		for(unsigned char i = 0; i < tasksNum; i++){
 			if (tasks[i].elapsedTime >= tasks[i].period){
@@ -73,7 +70,7 @@ int main(void) {
     return 1;
 }
 
-unsigned char decKey(){
+unsigned char decKey(unsigned char key){
 	unsigned char tmp;
 	
 	switch(key){				
@@ -151,6 +148,8 @@ unsigned char decKey(){
 
 int KP_tick(int state){
 	
+	unsigned char key = GetKeypadKey();
+	
 	switch(state){ //transitions
 		case WAIT:
 			state = (key == '\0') ? WAIT : PRESS;
@@ -187,7 +186,7 @@ int KP_tick(int state){
 			break;
 	}
 	
-	outtieKP |= decKey();
+	outtieKP |= decKey(key);
 	
 	return state;
 }
