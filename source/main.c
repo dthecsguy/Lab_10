@@ -62,8 +62,6 @@ int main(void) {
 			tasks[i].elapsedTime += tasksPeriodGCD;
 		}
 		
-		set_out();
-		
 		while(!TimerFlag){}
 		TimerFlag = 0;
     }
