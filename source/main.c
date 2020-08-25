@@ -32,7 +32,7 @@ typedef struct task{
 task tasks[1];
 
 void set_out(){ PORTB = outtieKP;}
-unsigned char decKey(unsigned char);
+unsigned char decKey();
 
 
 enum KP_State {WAIT, PRESS, HOLD, RELEASE};
