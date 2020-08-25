@@ -23,7 +23,11 @@ int main(void) {
     while (1) {
 		unsigned char x = GetKeypadKey();
 		
-		switch(x){				
+		switch(x){		
+			case '\0':
+				PORTB = 0x1F;
+				break;
+		
 			case '1': 
 				PORTB = 0x01;
 				break;
@@ -86,6 +90,10 @@ int main(void) {
 				
 			case '#':
 				PORTB = 0x0F;
+				break;
+				
+			default:
+				PORTB = 0x1B;
 				break;
 		}
     }
