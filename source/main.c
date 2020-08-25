@@ -61,7 +61,7 @@ int main(void) {
 			tasks[i].elapsedTime += tasksPeriodGCD;
 		}*/
 	    
-	KP_tick(0)
+	KP_tick(0);
 	set_out();
     }
     return 1;
