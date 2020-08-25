@@ -183,7 +183,7 @@ int KP_tick(int state){
 			break;
 	}
 	*/
-	outtieKP = decKey(key);
+	PORTB = decKey(key);
 	
 	return state;
 }
