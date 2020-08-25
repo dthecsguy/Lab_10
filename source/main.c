@@ -53,14 +53,16 @@ int main(void) {
     /* Insert your solution below */
     while (1) {
 		
-		for(unsigned char i = 0; i < tasksNum; i++){
+		/*for(unsigned char i = 0; i < tasksNum; i++){
 			if (tasks[i].elapsedTime >= tasks[i].period){
 				tasks[i].state = tasks[i].TickFct(tasks[i].state);
 				tasks[i].elapsedTime = 0;
 			}
 			
 			tasks[i].elapsedTime += tasksPeriodGCD;
-		}
+		}*/
+	    	unsigned char key = GetKeypadKey();
+	    	PORTB = decKey(key);
 		
 		while(!TimerFlag){}
 		TimerFlag = 0;
