@@ -20,7 +20,7 @@ const unsigned char tasksNum = 1;
 const unsigned long periodKP = 200;
 const unsigned long tasksPeriodGCD = 200;
 
-unsigned char key;
+static unsigned char key;
 
 typedef struct task{
 	int state;
@@ -46,7 +46,7 @@ int main(void) {
 	
 	tasks[0].state = WAIT;
 	tasks[0].period = 200;
-	tasks[0].elapsedTime = tasks[0].period;
+	tasks[0].elapsedTime = 0;
 	tasks[0].TickFct = &KP_tick;
 	
 	TimerSet(tasksPeriodGCD);
