@@ -147,7 +147,7 @@ int KP_tick(int state){
 	
 	unsigned char key = GetKeypadKey();
 	
-	switch(state){ //transitions
+	/*switch(state){ //transitions
 		case WAIT:
 			state = (key == '\0') ? WAIT : PRESS;
 			break;
@@ -182,8 +182,8 @@ int KP_tick(int state){
 			outtieKP = 0;
 			break;
 	}
-	
-	outtieKP |= decKey(key);
+	*/
+	outtieKP = decKey(key);
 	
 	return state;
 }
