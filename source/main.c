@@ -13,19 +13,59 @@
 #endif
 
 #include "keypad.h"
+#include "timer.h"
+
+static unsigned char outtieKP = 0;
+const unsigned char tasksNum = 1;
+const unsigned long periodKP = 200;
+const unsigned long tasksPeriodGCD = 200;
+
+typedef struct task{
+	int state;
+	unsigned long period;
+	unsigned long elapsedTime;
+	int (*TickFct)(int);
+} task;
+
+task tasks[1];
+
+void set_out(){ PORTB = outtieKP;}
+unsigned char decKey(unsigned char key);
+
+
+enum KP_State {WAIT, PRESS, HOLD, RELEASE};
+
+int KP_tick(int state);
 
 int main(void) {
     /* Insert DDR and PORT initializations */
 	DDRB = 0xFF;	PORTB = 0x00;
 	DDRC = 0xF0;	PORTC = 0x0F;
 	
+	tasks[0].state = RELEASE;
+	tasks[0].period = 200;
+	tasks[0].elapsedTime = 0;
+	tasks[0].TickFct = &KP_tick;
+	
+	TimerSet(tasksPeriodGCD);
+	TimerOn();
+	
     /* Insert your solution below */
     while (1) {
 		
-	    	unsigned char key = GetKeypadKey();
-	    	PORTB = decKey(key);
+		for(unsigned char i = 0; i < tasksNum; i++){
+			if (tasks[i].elapsedTime >= tasks[i].period){
+				tasks[i].state = tasks[i].TickFct(tasks[i].state);
+				tasks[i].elapsedTime = 0;
+			}
+			
+			tasks[i].elapsedTime += tasksPeriodGCD;
+		}
 		
+		set_out();
 		
+		while(!TimerFlag){}
+		TimerFlag = 0;
     }
     return 1;
 }
