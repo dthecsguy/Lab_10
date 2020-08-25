@@ -48,24 +48,21 @@ int main(void) {
 	tasks[0].TickFct = &KP_tick;
 	
 	TimerSet(tasksPeriodGCD);
-	TimerOn();
 	
     /* Insert your solution below */
     while (1) {
 		
-		for(unsigned char i = 0; i < tasksNum; i++){
+		/*for(unsigned char i = 0; i < tasksNum; i++){
 			if (tasks[i].elapsedTime >= tasks[i].period){
 				tasks[i].state = tasks[i].TickFct(tasks[i].state);
 				tasks[i].elapsedTime = 0;
 			}
 			
 			tasks[i].elapsedTime += tasksPeriodGCD;
-		}
-		
-		set_out();
-		
-		while(!TimerFlag){}
-		TimerFlag = 0;
+		}*/
+	    
+	KP_tick(0)
+	set_out();
     }
     return 1;
 }
