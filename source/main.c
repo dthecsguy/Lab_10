@@ -22,7 +22,7 @@ const unsigned long tasksPeriodGCD = 200;
 
 unsigned char key;
 
-struct task {
+typedef struct task{
 	int state;
 	unsigned long period;
 	unsigned long elapsedTime;
