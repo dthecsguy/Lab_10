@@ -17,7 +17,7 @@
 int main(void) {
     /* Insert DDR and PORT initializations */
 	DDRB = 0xFF;	PORTB = 0x00;
-	DDRC = 0xF0;	PORTC = 0x0F;
+	DDRA = 0xF0;	PORTA = 0x0F;
 	
     /* Insert your solution below */
     while (1) {
