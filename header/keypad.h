@@ -22,8 +22,8 @@
 #include <bit.h>
 
 // Keypad Setup Values
-#define KEYPADPORT PORTC
-#define KEYPADPIN  PINC
+#define KEYPADPORT PORTA
+#define KEYPADPIN  PINA
 #define ROW4 7
 #define ROW3 6
 #define ROW2 5
